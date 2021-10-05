@@ -1,30 +1,19 @@
 /**
- * @param {number} big
- * @param {number} medium
- * @param {number} small
+ * @param {number[]} nums
+ * @return {number}
  */
-
-//  Runtime: 136 ms, faster than 88.95% of JavaScript online submissions for Design Parking System.
-//  Memory Usage: 45.7 MB, less than 74.56% of JavaScript online submissions for Design Parking System.
-var ParkingSystem = function (big, medium, small) {
-	this.parkingLot = [big, medium, small];
-};
-
-/** 
- * @param {number} carType
- * @return {boolean}
- */
-ParkingSystem.prototype.addCar = function (carType) {
-	if (this.parkingLot[carType - 1] > 0) {
-		this.parkingLot[carType - 1] -= 1;
-		return true;
-	} else {
-		return false;
+//  Runtime: 714 ms, faster than 5.05% of JavaScript online submissions for Single Number.
+//  Memory Usage: 40.9 MB, less than 95.06% of JavaScript online submissions for Single Number.
+var singleNumber = function (nums) {
+	for (let i = 0; i < nums.length; i++) {
+		let singleton = true;
+		for (let j = 0; j < nums.length; j++) {
+			if ((nums[i] == nums[j]) && (i != j)) {
+				singleton = false;
+			}
+		}
+		if (singleton == true) {
+			return nums[i];
+		}
 	}
 };
-
-/**
- * Your ParkingSystem object will be instantiated and called as such:
- * var obj = new ParkingSystem(big, medium, small)
- * var param_1 = obj.addCar(carType)
- */
